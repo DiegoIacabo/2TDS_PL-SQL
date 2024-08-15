@@ -15,9 +15,10 @@ create or replace package body pkg_calculadora as
     
     function sf_dolar_real(p_dolar number)
     return number is
-    v_real number;
+    v_cotacao number (4,2) := '&QUAL_A_COTACAO_DO_DOLAR';
+    v_real number(10,2);
     begin
-    v_real := p_dolar * 5.04;
+    v_real := p_dolar * v_cotacao;
     return v_real;
     end;
     
